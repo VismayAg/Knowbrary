@@ -28,7 +28,7 @@ Display.prototype.clear = function () {
     libraryForm.reset();
 }
 Display.prototype.validate = function (book) {
-    if (book.name.length < 2 || book.author.length < 2) {
+    if (book.name.length <= 2 || book.author.length <= 2) {
         return false;
     }
     else {
@@ -42,9 +42,9 @@ Display.prototype.show = function (type, displayMessage) {
                                 <strong>Message:</strong>  ${displayMessage}
                                 <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
                         </div>`
-    setTimeout(function(){
+    setTimeout(function () {
         message.innerHTML = '';
-    }, 2000);
+    }, 5000);
 }
 
 // Add submit eventlistener to libraryForm
@@ -83,8 +83,6 @@ function libraryFormSubmit(e) {
     else {
         display.show('danger', 'Sorry you cannot add this book!');
     }
-
     e.preventDefault();
-
 }
 
